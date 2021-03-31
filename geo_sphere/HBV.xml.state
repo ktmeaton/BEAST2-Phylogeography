@@ -1,0 +1,32 @@
+<itsabeastystatewerein version='2.0' sample='1000000'>
+<statenode id='Tree.t:HBV'>(((((0:52.24710946560077,12:67.24710946560077)19:21.93816045709893,6:87.1852699226997)24:110.2326307347197,(2:121.07078580110924,(3:88.65455244929568,4:91.65455244929568)26:33.41623335181356)23:73.34711485631017)27:176.9044750430042,((1:97.9529708522495,9:114.9529708522495)29:43.83038757666648,5:160.783358428916)31:216.53901727150762)20:157.4215668031914,((((7:93.86642516907844,11:96.86642516907844)22:14.15500592938993,13:112.02143109846837)18:40.472342237833615,(10:36.84026006388516,16:46.84026006388516)21:101.65351327241683)17:214.76947159736088,(8:92.86918968098267,(14:43.063840766309596,15:28.063840766309596)25:47.805348914673075)30:270.3940552526802)28:167.48069756995216)32:0.0</statenode>
+<statenode id='kappa.s:HBV'>kappa.s:HBV[1 1] (0.0,Infinity): 2.7344347290603443 </statenode>
+<statenode id='clockRate.c:HBV'>clockRate.c:HBV[1 1] (0.0,Infinity): 1.3335779972299417E-4 </statenode>
+<statenode id='ucldMean.c:geo'>ucldMean.c:geo[1 1] (-Infinity,Infinity): 5.4493907554249244E14 </statenode>
+<statenode id='ucldStdev.c:geo'>ucldStdev.c:geo[1 1] (0.0,Infinity): 9.69579604832415 </statenode>
+<statenode id='rateCategories.c:geo'>rateCategories.c:geo[32 1] (0,31): 2 3 26 2 25 27 27 1 27 26 30 28 26 28 27 1 6 0 0 0 0 28 1 29 0 0 0 27 28 0 30 0 </statenode>
+<statenode id='popSize.t:HBV'>popSize.t:HBV[1 1] (-Infinity,Infinity): 618.8129710203236 </statenode>
+<statenode id='freqParameter.s:HBV'>freqParameter.s:HBV[4 1] (0.0,1.0): 0.2348422427081846 0.27302463451474934 0.21202379977304175 0.2801093230040242 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"KappaScaler.s:HBV","p":0.631525175835113,"accept":166,"reject":698,"acceptFC":158,"rejectFC":672,"rejectIv":0,"rejectOp":0},
+{"id":"StrictClockRateScaler.c:HBV","p":0.7929785857812385,"accept":4668,"reject":20781,"acceptFC":4530,"rejectFC":20136,"rejectIv":0,"rejectOp":0},
+{"id":"strictClockUpDownOperator.c:HBV","p":0.4884139586707701,"accept":4736,"reject":20661,"acceptFC":4355,"rejectFC":20240,"rejectIv":7331,"rejectOp":1500},
+{"id":"ucldMeanScaler.c:geo","p":0.33226886595407035,"accept":1793,"reject":6765,"acceptFC":1695,"rejectFC":6602,"rejectIv":627,"rejectOp":0},
+{"id":"ucldStdevScaler.c:geo","p":0.8526952453993738,"accept":547,"reject":24839,"acceptFC":466,"rejectFC":24147,"rejectIv":9695,"rejectOp":0},
+{"id":"CategoriesRandomWalk.c:geo","p":"NaN","accept":15662,"reject":69281,"acceptFC":14204,"rejectFC":67999,"rejectIv":46020,"rejectOp":38994},
+{"id":"CategoriesSwapOperator.c:geo","p":"NaN","accept":16703,"reject":67901,"acceptFC":15685,"rejectFC":66254,"rejectIv":17254,"rejectOp":0},
+{"id":"CategoriesUniform.c:geo","p":"NaN","accept":6358,"reject":78209,"acceptFC":5206,"rejectFC":76598,"rejectIv":11501,"rejectOp":0},
+{"id":"relaxedUpDownOperator.c:geo","p":0.8123245681444798,"accept":3360,"reject":21882,"acceptFC":3242,"rejectFC":21211,"rejectIv":6076,"rejectOp":26},
+{"id":"CoalescentConstantTreeScaler.t:HBV","p":0.7723827709096907,"accept":2692,"reject":22647,"acceptFC":2635,"rejectFC":21908,"rejectIv":5978,"rejectOp":34},
+{"id":"CoalescentConstantTreeRootScaler.t:HBV","p":0.7629807854318524,"accept":2998,"reject":22386,"acceptFC":2933,"rejectFC":21633,"rejectIv":6454,"rejectOp":942},
+{"id":"CoalescentConstantUniformOperator.t:HBV","p":"NaN","accept":36220,"reject":217225,"acceptFC":34780,"rejectFC":210537,"rejectIv":41404,"rejectOp":0},
+{"id":"CoalescentConstantSubtreeSlide.t:HBV","p":46.99975670918017,"accept":30410,"reject":96720,"acceptFC":26685,"rejectFC":96349,"rejectIv":30833,"rejectOp":12442},
+{"id":"CoalescentConstantNarrow.t:HBV","p":"NaN","accept":54,"reject":126519,"acceptFC":0,"rejectFC":122530,"rejectIv":28037,"rejectOp":40},
+{"id":"CoalescentConstantWide.t:HBV","p":"NaN","accept":1,"reject":25409,"acceptFC":0,"rejectFC":24604,"rejectIv":16630,"rejectOp":13064},
+{"id":"CoalescentConstantWilsonBalding.t:HBV","p":"NaN","accept":4,"reject":25419,"acceptFC":0,"rejectFC":24619,"rejectIv":11338,"rejectOp":4957},
+{"id":"PopSizeScaler.t:HBV","p":0.33605594622445595,"accept":7947,"reject":17481,"acceptFC":7352,"rejectFC":17265,"rejectIv":0,"rejectOp":0},
+{"id":"FrequenciesExchanger.s:HBV","p":0.03144056410070473,"accept":244,"reject":615,"acceptFC":222,"rejectFC":599,"rejectIv":0,"rejectOp":0}
+]}
+-->

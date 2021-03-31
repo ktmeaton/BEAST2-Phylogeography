@@ -1,52 +1,26 @@
-```
-title: BEAST2 Phylogeography
-```
-
 # BEAST2 Phylogeography
 
-## Outline
+## Setup
 
-1. Download WHO case data.
-
-## Steps
-
-### Download WHO Case Data
-
-- This project uses the database constructed by [[xu2019HistoricalGenomicData|Xu et al. (2019)]].
-- Convert the SI xlsx database from [[xu2019HistoricalGenomicData]] to a nice Lat,Lon file for Palladio.
+1. Create a conda environment.
 
 ```bash
-echo -e "ID\tLatLon\tDate" > xu2019HistoricalGenomicData_palladio.tsv;
-tail -n+2 xu2019HistoricalGenomicData_SI.txt | while read line;
-do
-  ID=`echo "$line" | cut -f 1`;
-  Date=`echo "$line" | cut -f 4 | cut -d "." -f 1`;
-  LatLon=`echo "$line" | awk -F "\t" '{print $3","$2}'`;
-  echo -e "$ID\t$LatLon\t$Date";
-done >> xu2019HistoricalGenomicData_palladio.tsv
+mamba env create -f environment.yaml
 ```
 
-1. Create a new project: ```1-ORI``` 
-1. Construct a SQL query to select just #Clade/1-ORI  samples.
-	```bash
-	SELECT * FROM BioSample 
-		WHERE 
-		BioSampleBranch LIKE "%1.ORI%" 	
-		AND 
-		BioSampleComment LIKE "%KEEP%Assembly MODERN%"
-	```
-This selects 112 rows.
+1. Install the GEO_SPHERE package through the beauti GUI.
 
-1. Construct a new multiple alignment.
-	```
-	workflow/scripts/project_clean.sh results rm
-	workflow/scripts/project_load.sh results ../plague-phylogeography-projects/1-ORI rsync
-	```
-
-## Tools
-
-```yaml
-BEAST2: 2.6.3
-GEO-SPHERE: 
-spreaD3
+```bash
+miniconda3/envs/beast/bin/beauti
 ```
+
+## GEO SPHERE Tutorial
+
+1. Create a tutorial directory.
+
+```bash
+mkdir -p geo_sphere
+cd geo_sphere;
+```
+
+1. Download the tutorial data from <https://github.com/BEAST2-Dev/beast-geo>.

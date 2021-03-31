@@ -1,0 +1,9 @@
+name: beast
+channels:
+  - bioconda
+  - conda-forge
+  - anaconda
+  - defaults
+dependencies:
+  - beast2=2.6.3
+  - beagle-lib=3.1.2

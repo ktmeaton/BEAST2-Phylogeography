@@ -5,5 +5,5 @@ channels:
   - anaconda
   - defaults
 dependencies:
-  - beast2=2.6.3
+  - beast2=2.6.2
   - beagle-lib=3.1.2

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" required="" version="2.6">
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+<map name="Uniform" >beast.math.distributions.Uniform</map>
+<map name="Exponential" >beast.math.distributions.Exponential</map>
+<map name="LogNormal" >beast.math.distributions.LogNormalDistributionModel</map>
+<map name="Normal" >beast.math.distributions.Normal</map>
+<map name="Beta" >beast.math.distributions.Beta</map>
+<map name="Gamma" >beast.math.distributions.Gamma</map>
+<map name="LaplaceDistribution" >beast.math.distributions.LaplaceDistribution</map>
+<map name="prior" >beast.math.distributions.Prior</map>
+<map name="InverseGamma" >beast.math.distributions.InverseGamma</map>
+<map name="OneOnX" >beast.math.distributions.OneOnX</map>
+
+
+<run id="mcmc" spec="MCMC" chainLength="10">
+    <state id="state" spec="State" storeEvery="5000">
+        <parameter id="ucldStdev.c:subtree_resolve_nonzero" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.1</parameter>
+        <stateNode id="rateCategories.c:subtree_resolve_nonzero" spec="parameter.IntegerParameter" dimension="8">1</stateNode>
+    </state>
+
+    <distribution id="posterior" spec="util.CompoundDistribution">
+        <distribution id="prior" spec="util.CompoundDistribution">
+            <prior id="ucldStdevPrior.c:subtree_resolve_nonzero" name="distribution" x="@ucldStdev.c:subtree_resolve_nonzero">
+                <Gamma id="Gamma.0" name="distr">
+                    <parameter id="RealParameter.1" spec="parameter.RealParameter" estimate="false" name="alpha">0.5396</parameter>
+                    <parameter id="RealParameter.2" spec="parameter.RealParameter" estimate="false" name="beta">0.3819</parameter>
+                </Gamma>
+            </prior>
+        </distribution>
+        <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+            <distribution id="slocationtreeLikelihood.subtree_resolve_nonzero" spec="sphericalGeo.ApproxMultivariateTraitLikelihood">
+                <data
+id="subtree_resolve_nonzero"
+spec="sphericalGeo.AlignmentFromTraitMap">
+                    <traitMap id="traitmap.s:subtree_resolve_nonzero" spec="sphericalGeo.TreeTraitMap" initByMean="true" randomizelower="-90 -180" randomizeupper="90 180" traitName="location">
+                        <tree id="Tree.t:subtree_resolve_nonzero" spec="beast.util.TreeParser" IsLabelledNewick="true" adjustTipHeights="false" estimate="false" newick="(GCA_001295055.1_ASM129505v1_genomic:43.18618,(((GCA_003074395.1_ASM307439v1_genomic:9.999999999976694E-4,GCA_003074415.1_ASM307441v1_genomic:9.999999999976694E-4):9.46873,GCA_003074435.1_ASM307443v1_genomic:14.468609999999998):0.0010000000000012221,GCA_001294985.1_ASM129498v1_genomic:8.468610000000002):23.717560000000002):0.0">
+                            <taxonset id="TaxonSet.0" spec="TaxonSet">
+                                <taxon id="GCA_001294985.1_ASM129498v1_genomic" spec="Taxon"/>
+                                <taxon id="GCA_001295055.1_ASM129505v1_genomic" spec="Taxon"/>
+                                <taxon id="GCA_003074395.1_ASM307439v1_genomic" spec="Taxon"/>
+                                <taxon id="GCA_003074415.1_ASM307441v1_genomic" spec="Taxon"/>
+                                <taxon id="GCA_003074435.1_ASM307443v1_genomic" spec="Taxon"/>
+                            </taxonset>
+                        </tree>
+                        <parameter id="location.s:subtree_resolve_nonzero" spec="sphericalGeo.LocationParameter" dimension="18" minordimension="2">0.0 0.0</parameter>
+                        GCA_001294985.1_ASM129498v1_genomic=40.6065534 46.70500981655712,
+GCA_001295055.1_ASM129505v1_genomic=40.6065534 46.70500981655712,
+GCA_003074395.1_ASM307439v1_genomic=40.918594 43.8403536,
+GCA_003074415.1_ASM307441v1_genomic=40.3030726 45.375739,
+GCA_003074435.1_ASM307443v1_genomic=39.3281408 46.1530296                    </traitMap>
+                    <userDataType id="LocationDataType.0" spec="sphericalGeo.LocationDataType"/>
+                </data>
+                <tree idref="Tree.t:subtree_resolve_nonzero"/>
+                <siteModel id="geoContSiteModel.s:subtree_resolve_nonzero" spec="SiteModel">
+                    <substModel id="sdiffusionModel.s:subtree_resolve_nonzero" spec="sphericalGeo.SphericalDiffusionModel" fast="true">
+                        <parameter id="sprecision.s:subtree_resolve_nonzero" spec="parameter.RealParameter" lower="0.0" name="precision">100.0</parameter>
+                    </substModel>
+                </siteModel>
+                <branchRateModel id="RelaxedClock.c:subtree_resolve_nonzero" spec="beast.evolution.branchratemodel.UCRelaxedClockModel" rateCategories="@rateCategories.c:subtree_resolve_nonzero" tree="@Tree.t:subtree_resolve_nonzero">
+                    <LogNormal id="LogNormalDistributionModel.c:subtree_resolve_nonzero" S="@ucldStdev.c:subtree_resolve_nonzero" meanInRealSpace="true" name="distr">
+                        <parameter id="RealParameter.0" spec="parameter.RealParameter" estimate="false" lower="0.0" name="M" upper="1.0">1.0</parameter>
+                    </LogNormal>
+                    <parameter id="ucldMean.c:subtree_resolve_nonzero" spec="parameter.RealParameter" estimate="false" name="clock.rate">1.0</parameter>
+                </branchRateModel>
+            </distribution>
+        </distribution>
+    </distribution>
+
+    <operator id="ucldStdevScaler.c:subtree_resolve_nonzero" spec="ScaleOperator" parameter="@ucldStdev.c:subtree_resolve_nonzero" scaleFactor="0.5" weight="3.0"/>
+
+    <operator id="CategoriesRandomWalk.c:subtree_resolve_nonzero" spec="IntRandomWalkOperator" parameter="@rateCategories.c:subtree_resolve_nonzero" weight="10.0" windowSize="1"/>
+
+    <operator id="CategoriesSwapOperator.c:subtree_resolve_nonzero" spec="SwapOperator" intparameter="@rateCategories.c:subtree_resolve_nonzero" weight="10.0"/>
+
+    <operator id="CategoriesUniform.c:subtree_resolve_nonzero" spec="UniformOperator" parameter="@rateCategories.c:subtree_resolve_nonzero" weight="10.0"/>
+
+    <logger id="tracelog" spec="Logger" fileName="beast.log" model="@posterior" sanitiseHeaders="true" sort="smart">
+        <log idref="posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+        <log idref="slocationtreeLikelihood.subtree_resolve_nonzero"/>
+        <log idref="sprecision.s:subtree_resolve_nonzero"/>
+        <log idref="ucldStdev.c:subtree_resolve_nonzero"/>
+        <log id="rate.c:subtree_resolve_nonzero" spec="beast.evolution.branchratemodel.RateStatistic" branchratemodel="@RelaxedClock.c:subtree_resolve_nonzero" tree="@Tree.t:subtree_resolve_nonzero"/>
+    </logger>
+
+    <logger id="screenlog" spec="Logger">
+        <log idref="posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+    </logger>
+
+    <logger id="TreeLogger" spec="Logger" fileName="subtree.trees" mode="tree">
+        <log id="TreeWithMetaDataLogger" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:subtree_resolve_nonzero">
+            <metadata id="location" spec="sphericalGeo.TraitFunction" likelihood="@slocationtreeLikelihood.subtree_resolve_nonzero">0.0</metadata>
+        </log>
+    </logger>
+
+    <operatorschedule id="OperatorSchedule" spec="OperatorSchedule"/>
+
+</run>
+
+</beast>

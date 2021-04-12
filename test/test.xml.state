@@ -1,0 +1,12 @@
+<itsabeastystatewerein version='2.0' sample='10'>
+<statenode id='ucldStdev.c:test'>ucldStdev.c:test[1 1] (0.0,Infinity): 0.1 </statenode>
+<statenode id='rateCategories.c:test'>rateCategories.c:test[10 1] (0,9): 9 4 7 7 5 3 0 7 6 6 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"ucldStdevScaler.c:test","p":0.5,"accept":0,"reject":1,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"CategoriesRandomWalk.c:test","p":"NaN","accept":1,"reject":3,"acceptFC":0,"rejectFC":0,"rejectIv":3,"rejectOp":3},
+{"id":"CategoriesSwapOperator.c:test","p":"NaN","accept":4,"reject":0,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"CategoriesUniform.c:test","p":"NaN","accept":2,"reject":0,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0}
+]}
+-->

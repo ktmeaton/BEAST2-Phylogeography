@@ -1,0 +1,63 @@
+#
+#model:
+#
+#<?xml version="1.0" encoding="UTF-8" standalone="no"?><input id="posterior" spec="beast.core.util.CompoundDistribution">
+#    <distribution id="prior" spec="beast.core.util.CompoundDistribution">
+#        <prior id="ucldStdevPrior.c:subtree_resolve_nonzero" name="distribution">
+#            <parameter id="ucldStdev.c:subtree_resolve_nonzero" lower="0.0" name="x" spec="beast.core.parameter.RealParameter">0.1</parameter>
+#            <Gamma id="Gamma.0" name="distr">
+#                <parameter estimate="false" id="RealParameter.1" name="alpha" spec="beast.core.parameter.RealParameter">0.5396</parameter>
+#                <parameter estimate="false" id="RealParameter.2" name="beta" spec="beast.core.parameter.RealParameter">0.3819</parameter>
+#            </Gamma>
+#        </prior>
+#    </distribution>
+#    <distribution id="likelihood" spec="beast.core.util.CompoundDistribution" useThreads="true">
+#        <distribution id="slocationtreeLikelihood.subtree_resolve_nonzero" spec="sphericalGeo.ApproxMultivariateTraitLikelihood">
+#            <data id="subtree_resolve_nonzero" spec="sphericalGeo.AlignmentFromTraitMap">
+#                <traitMap id="traitmap.s:subtree_resolve_nonzero" initByMean="true" randomizelower="-90 -180" randomizeupper="90 180" spec="sphericalGeo.TreeTraitMap" traitName="location">
+#                    <tree IsLabelledNewick="true" adjustTipHeights="false" estimate="false" id="Tree.t:subtree_resolve_nonzero" newick="(GCA_001295055.1_ASM129505v1_genomic:43.18618,(((GCA_003074395.1_ASM307439v1_genomic:9.999999999976694E-4,GCA_003074415.1_ASM307441v1_genomic:9.999999999976694E-4):9.46873,GCA_003074435.1_ASM307443v1_genomic:14.468609999999998):0.0010000000000012221,GCA_001294985.1_ASM129498v1_genomic:8.468610000000002):23.717560000000002):0.0" spec="beast.util.TreeParser">
+#                        <taxonset id="TaxonSet.0" spec="beast.evolution.alignment.TaxonSet">
+#                            <taxon id="GCA_001294985.1_ASM129498v1_genomic" spec="beast.evolution.alignment.Taxon"/>
+#                            <taxon id="GCA_001295055.1_ASM129505v1_genomic" spec="beast.evolution.alignment.Taxon"/>
+#                            <taxon id="GCA_003074395.1_ASM307439v1_genomic" spec="beast.evolution.alignment.Taxon"/>
+#                            <taxon id="GCA_003074415.1_ASM307441v1_genomic" spec="beast.evolution.alignment.Taxon"/>
+#                            <taxon id="GCA_003074435.1_ASM307443v1_genomic" spec="beast.evolution.alignment.Taxon"/>
+#                        </taxonset>
+#                    </tree>
+#                    <parameter dimension="18" id="location.s:subtree_resolve_nonzero" minordimension="2" spec="sphericalGeo.LocationParameter">0.0 0.0</parameter>
+#                        GCA_001294985.1_ASM129498v1_genomic=40.6065534 46.70500981655712,
+#GCA_001295055.1_ASM129505v1_genomic=40.6065534 46.70500981655712,
+#GCA_003074395.1_ASM307439v1_genomic=40.918594 43.8403536,
+#GCA_003074415.1_ASM307441v1_genomic=40.3030726 45.375739,
+#GCA_003074435.1_ASM307443v1_genomic=39.3281408 46.1530296                                    </traitMap>
+#                <userDataType id="LocationDataType.0" spec="sphericalGeo.LocationDataType"/>
+#            </data>
+#            <tree idref="Tree.t:subtree_resolve_nonzero"/>
+#            <siteModel id="geoContSiteModel.s:subtree_resolve_nonzero" spec="beast.evolution.sitemodel.SiteModel">
+#                <substModel fast="true" id="sdiffusionModel.s:subtree_resolve_nonzero" spec="sphericalGeo.SphericalDiffusionModel">
+#                    <parameter id="sprecision.s:subtree_resolve_nonzero" lower="0.0" name="precision" spec="beast.core.parameter.RealParameter">100.0</parameter>
+#                </substModel>
+#            </siteModel>
+#            <branchRateModel id="RelaxedClock.c:subtree_resolve_nonzero" spec="beast.evolution.branchratemodel.UCRelaxedClockModel" tree="@Tree.t:subtree_resolve_nonzero">
+#                <LogNormal S="@ucldStdev.c:subtree_resolve_nonzero" id="LogNormalDistributionModel.c:subtree_resolve_nonzero" meanInRealSpace="true" name="distr">
+#                    <parameter estimate="false" id="RealParameter.0" lower="0.0" name="M" spec="beast.core.parameter.RealParameter" upper="1.0">1.0</parameter>
+#                </LogNormal>
+#                <rateCategories dimension="8" id="rateCategories.c:subtree_resolve_nonzero" spec="beast.core.parameter.IntegerParameter">1</rateCategories>
+#                <parameter estimate="false" id="ucldMean.c:subtree_resolve_nonzero" name="clock.rate" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#            </branchRateModel>
+#        </distribution>
+#    </distribution>
+#</input>
+#
+Sample	posterior	likelihood	prior	slocationtreeLikelihood	sprecision	ucldStdev	rate.mean	rate.variance	rate.coefficientOfVariation
+0	-6.51956376584059	-7.338927910961392	0.819364145120802	-7.338927910961392	100.0	0.1	0.9678634004887047	0.005499706412757396	0.07465271904714751
+1	-6.531455479872785	-7.350819624993587	0.819364145120802	-7.350819624993587	100.0	0.1	0.9581531007401618	0.005499706412757397	0.0746527190471475
+2	-6.531455479872785	-7.350819624993587	0.819364145120802	-7.350819624993587	100.0	0.1	0.9581531007401618	0.005499706412757397	0.0746527190471475
+3	-6.492937833660156	-7.312301978780958	0.819364145120802	-7.312301978780958	100.0	0.1	0.9493155584238382	0.00615567420262308	0.07934885617109905
+4	-6.492937833660156	-7.312301978780958	0.819364145120802	-7.312301978780958	100.0	0.1	0.9493155584238382	0.00615567420262308	0.07934885617109905
+5	-6.492937833660156	-7.312301978780958	0.819364145120802	-7.312301978780958	100.0	0.1	0.9493155584238382	0.00615567420262308	0.07934885617109905
+6	-6.460142883133212	-7.594971229895034	1.1348283467618212	-7.594971229895034	100.0	0.06241178393552782	0.9688324004766243	0.002465807240254449	0.04998237723868403
+7	-6.48397949173685	-7.618807838498671	1.1348283467618212	-7.618807838498671	100.0	0.06241178393552782	0.970628914632517	0.0026080503121631202	0.051267913271692306
+8	-6.48397949173685	-7.618807838498671	1.1348283467618212	-7.618807838498671	100.0	0.06241178393552782	0.970628914632517	0.0026080503121631202	0.051267913271692306
+9	-6.48397949173685	-7.618807838498671	1.1348283467618212	-7.618807838498671	100.0	0.06241178393552782	0.970628914632517	0.0026080503121631202	0.051267913271692306
+10	-6.48397949173685	-7.618807838498671	1.1348283467618212	-7.618807838498671	100.0	0.06241178393552782	0.970628914632517	0.0026080503121631202	0.051267913271692306

@@ -1,0 +1,23 @@
+<itsabeastystatewerein version='2.0' sample='10000'>
+<statenode id='Tree.t:fixed-tree'>(((0:0.054325412200000006,9:0.031160194900000007)10:0.011190999999999993,(3:0.006298619999999998,(4:0.0216226366,((5:0.015087709800000002,(7:0.019005459000000002,8:0.008152275299999998)11:0.010289)12:0.0013740000000000002,6:0.014521344999999998)13:0.0036419999999999994)14:0.0022049999999999986)15:0.014363)16:0.009492500000000001,(1:0.045541898,2:0.012228617100000005)17:0.009492500000000001)18:0.0</statenode>
+<statenode id='birthRate.t:fixed-tree'>birthRate.t:fixed-tree[1 1] (-Infinity,Infinity): 1.0 </statenode>
+<statenode id='kappa.s:fixed-tree'>kappa.s:fixed-tree[1 1] (0.0,Infinity): 2.0 </statenode>
+<statenode id='clockRate.c:geo'>clockRate.c:geo[1 1] (0.0,Infinity): 4.763391321978453 </statenode>
+<statenode id='freqParameter.s:fixed-tree'>freqParameter.s:fixed-tree[4 1] (0.0,1.0): 0.25 0.25 0.25 0.25 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"YuleBirthRateScaler.t:fixed-tree","p":0.75,"accept":0,"reject":0,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelTreeScaler.t:fixed-tree","p":0.5,"accept":0,"reject":0,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelTreeRootScaler.t:fixed-tree","p":0.5,"accept":0,"reject":0,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelUniformOperator.t:fixed-tree","p":"NaN","accept":0,"reject":0,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelSubtreeSlide.t:fixed-tree","p":1,"accept":0,"reject":0,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelNarrow.t:fixed-tree","p":"NaN","accept":0,"reject":0,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelWide.t:fixed-tree","p":"NaN","accept":0,"reject":0,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelWilsonBalding.t:fixed-tree","p":"NaN","accept":0,"reject":0,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"KappaScaler.s:fixed-tree","p":0.5,"accept":0,"reject":0,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"StrictClockRateScaler.c:geo","p":0.75,"accept":7339,"reject":2662,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"strictClockUpDownOperator.c:geo","p":0.75,"accept":0,"reject":0,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"FrequenciesExchanger.s:fixed-tree","p":0.01,"accept":0,"reject":0,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0}
+]}
+-->

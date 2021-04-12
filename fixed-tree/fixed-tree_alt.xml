@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" required="" version="2.6">
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+<map name="Uniform" >beast.math.distributions.Uniform</map>
+<map name="Exponential" >beast.math.distributions.Exponential</map>
+<map name="LogNormal" >beast.math.distributions.LogNormalDistributionModel</map>
+<map name="Normal" >beast.math.distributions.Normal</map>
+<map name="Beta" >beast.math.distributions.Beta</map>
+<map name="Gamma" >beast.math.distributions.Gamma</map>
+<map name="LaplaceDistribution" >beast.math.distributions.LaplaceDistribution</map>
+<map name="prior" >beast.math.distributions.Prior</map>
+<map name="InverseGamma" >beast.math.distributions.InverseGamma</map>
+<map name="OneOnX" >beast.math.distributions.OneOnX</map>
+
+
+<run id="mcmc" spec="MCMC" chainLength="10000000">
+    <state id="state" spec="State" storeEvery="5000">
+        <parameter id="ucldStdev.c:fixed-tree_alt" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.1</parameter>
+        <stateNode id="rateCategories.c:fixed-tree_alt" spec="parameter.IntegerParameter" dimension="18">1</stateNode>
+    </state>
+
+    <distribution id="posterior" spec="util.CompoundDistribution">
+        <distribution id="prior" spec="util.CompoundDistribution">
+            <prior id="ucldStdevPrior.c:fixed-tree_alt" name="distribution" x="@ucldStdev.c:fixed-tree_alt">
+                <Gamma id="Gamma.0" name="distr">
+                    <parameter id="RealParameter.1" spec="parameter.RealParameter" estimate="false" name="alpha">0.5396</parameter>
+                    <parameter id="RealParameter.2" spec="parameter.RealParameter" estimate="false" name="beta">0.3819</parameter>
+                </Gamma>
+            </prior>
+        </distribution>
+        <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+            <distribution id="slocationtreeLikelihood.fixed-tree_alt" spec="sphericalGeo.ApproxMultivariateTraitLikelihood">
+                <data
+id="fixed-tree_alt"
+spec="sphericalGeo.AlignmentFromTraitMap">
+                    <traitMap id="traitmap.s:fixed-tree_alt" spec="sphericalGeo.TreeTraitMap" initByMean="true" randomizelower="-90 -180" randomizeupper="90 180" traitName="location">
+                        <tree id="Tree.t:fixed-tree_alt" spec="beast.util.TreeParser" IsLabelledNewick="true" adjustTipHeights="false" estimate="false" newick="((Chalcura.nr.ramosa.D0646a:12228.617100000003,Austeucharis.implexa.D0164:45541.898):9492.5,((Ancylotropus.carniscutis.D0407:54325.41219999999,Schizaspidia.aenea.D0168:31160.194900000002):11191.0,(Colocharis.sp.D3843:6298.619999999995,(Galearia.sp.D3922:21622.636599999998,(Kapala.sp.D3920:14521.345000000001,(Kapala.ivorensis.D2746:15087.709799999997,(Lasiokapala.sp.D3598:19005.459000000003,Neolirata.alta.D3601:8152.275300000001):10289.0):1374.0):3642.0):2205.0):14363.0):9492.5):0.0">
+                            <taxonset id="TaxonSet.0" spec="TaxonSet">
+                                <taxon id="Ancylotropus.carniscutis.D0407" spec="Taxon"/>
+                                <taxon id="Austeucharis.implexa.D0164" spec="Taxon"/>
+                                <taxon id="Chalcura.nr.ramosa.D0646a" spec="Taxon"/>
+                                <taxon id="Colocharis.sp.D3843" spec="Taxon"/>
+                                <taxon id="Galearia.sp.D3922" spec="Taxon"/>
+                                <taxon id="Kapala.ivorensis.D2746" spec="Taxon"/>
+                                <taxon id="Kapala.sp.D3920" spec="Taxon"/>
+                                <taxon id="Lasiokapala.sp.D3598" spec="Taxon"/>
+                                <taxon id="Neolirata.alta.D3601" spec="Taxon"/>
+                                <taxon id="Schizaspidia.aenea.D0168" spec="Taxon"/>
+                            </taxonset>
+                        </tree>
+                        <parameter id="location.s:fixed-tree_alt" spec="sphericalGeo.LocationParameter" dimension="38" minordimension="2">0.0 0.0</parameter>
+                        Ancylotropus.carniscutis.D0407=63.3233807 97.09799740000001,
+Austeucharis.implexa.D0164=63.3233807 97.09799740000001,
+Chalcura.nr.ramosa.D0646a=58.31950685 104.71922099999999,
+Colocharis.sp.D3843=63.3233807 97.09799740000001,
+Galearia.sp.D3922=58.31950685 104.71922099999999,
+Kapala.ivorensis.D2746=63.3233807 97.09799740000001,
+Kapala.sp.D3920=58.31950685 104.71922099999999,
+Lasiokapala.sp.D3598=58.31950685 104.71922099999999,
+Neolirata.alta.D3601=63.3233807 97.09799740000001,
+Schizaspidia.aenea.D0168=58.31950685 104.71922099999999                    </traitMap>
+                    <userDataType id="LocationDataType.0" spec="sphericalGeo.LocationDataType"/>
+                </data>
+                <tree idref="Tree.t:fixed-tree_alt"/>
+                <siteModel id="geoContSiteModel.s:fixed-tree_alt" spec="SiteModel">
+                    <substModel id="sdiffusionModel.s:fixed-tree_alt" spec="sphericalGeo.SphericalDiffusionModel" fast="true">
+                        <parameter id="sprecision.s:fixed-tree_alt" spec="parameter.RealParameter" lower="0.0" name="precision">100.0</parameter>
+                    </substModel>
+                </siteModel>
+                <branchRateModel id="RelaxedClock.c:fixed-tree_alt" spec="beast.evolution.branchratemodel.UCRelaxedClockModel" rateCategories="@rateCategories.c:fixed-tree_alt" tree="@Tree.t:fixed-tree_alt">
+                    <LogNormal id="LogNormalDistributionModel.c:fixed-tree_alt" S="@ucldStdev.c:fixed-tree_alt" meanInRealSpace="true" name="distr">
+                        <parameter id="RealParameter.0" spec="parameter.RealParameter" estimate="false" lower="0.0" name="M" upper="1.0">1.0</parameter>
+                    </LogNormal>
+                    <parameter id="ucldMean.c:fixed-tree_alt" spec="parameter.RealParameter" estimate="false" name="clock.rate">1.0</parameter>
+                </branchRateModel>
+            </distribution>
+        </distribution>
+    </distribution>
+
+    <operator id="ucldStdevScaler.c:fixed-tree_alt" spec="ScaleOperator" parameter="@ucldStdev.c:fixed-tree_alt" scaleFactor="0.5" weight="3.0"/>
+
+    <operator id="CategoriesRandomWalk.c:fixed-tree_alt" spec="IntRandomWalkOperator" parameter="@rateCategories.c:fixed-tree_alt" weight="10.0" windowSize="1"/>
+
+    <operator id="CategoriesSwapOperator.c:fixed-tree_alt" spec="SwapOperator" intparameter="@rateCategories.c:fixed-tree_alt" weight="10.0"/>
+
+    <operator id="CategoriesUniform.c:fixed-tree_alt" spec="UniformOperator" parameter="@rateCategories.c:fixed-tree_alt" weight="10.0"/>
+
+    <logger id="tracelog" spec="Logger" fileName="beast.log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
+        <log idref="posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+        <log idref="slocationtreeLikelihood.fixed-tree_alt"/>
+        <log idref="sprecision.s:fixed-tree_alt"/>
+        <log idref="ucldStdev.c:fixed-tree_alt"/>
+        <log id="rate.c:fixed-tree_alt" spec="beast.evolution.branchratemodel.RateStatistic" branchratemodel="@RelaxedClock.c:fixed-tree_alt" tree="@Tree.t:fixed-tree_alt"/>
+    </logger>
+
+    <logger id="screenlog" spec="Logger" logEvery="1000">
+        <log idref="posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+    </logger>
+
+    <logger id="TreeLogger" spec="Logger" fileName="fixed-tree_alt.trees" logEvery="1000" mode="tree">
+        <log id="TreeWithMetaDataLogger" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:fixed-tree_alt">
+            <metadata id="location" spec="sphericalGeo.TraitFunction" likelihood="@slocationtreeLikelihood.fixed-tree_alt">0.0</metadata>
+        </log>
+    </logger>
+
+    <operatorschedule id="OperatorSchedule" spec="OperatorSchedule"/>
+
+</run>
+
+</beast>

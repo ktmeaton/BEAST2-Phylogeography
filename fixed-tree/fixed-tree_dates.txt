@@ -1,0 +1,10 @@
+Ancylotropus.carniscutis.D0407	0
+Lasiokapala.sp.D3598	1
+Austeucharis.implexa.D0164	2
+Schizaspidia.aenea.D0168	3
+Neolirata.alta.D3601	4
+Galearia.sp.D3922	5
+Kapala.ivorensis.D2746	6
+Kapala.sp.D3920	7
+Colocharis.sp.D3843	8
+Chalcura.nr.ramosa.D0646a	9

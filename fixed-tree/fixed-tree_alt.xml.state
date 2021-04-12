@@ -1,0 +1,12 @@
+<itsabeastystatewerein version='2.0' sample='44999'>
+<statenode id='ucldStdev.c:fixed-tree_alt'>ucldStdev.c:fixed-tree_alt[1 1] (0.0,Infinity): 6.905049568816597 </statenode>
+<statenode id='rateCategories.c:fixed-tree_alt'>rateCategories.c:fixed-tree_alt[18 1] (0,17): 0 17 5 0 17 0 17 17 0 17 0 0 0 0 0 1 17 1 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"ucldStdevScaler.c:fixed-tree_alt","p":0.5,"accept":141,"reject":4061,"acceptFC":0,"rejectFC":0,"rejectIv":555,"rejectOp":0},
+{"id":"CategoriesRandomWalk.c:fixed-tree_alt","p":"NaN","accept":1664,"reject":11890,"acceptFC":0,"rejectFC":0,"rejectIv":8545,"rejectOp":7493},
+{"id":"CategoriesSwapOperator.c:fixed-tree_alt","p":"NaN","accept":4444,"reject":9099,"acceptFC":0,"rejectFC":0,"rejectIv":1463,"rejectOp":0},
+{"id":"CategoriesUniform.c:fixed-tree_alt","p":"NaN","accept":1477,"reject":12224,"acceptFC":0,"rejectFC":0,"rejectIv":1220,"rejectOp":0}
+]}
+-->

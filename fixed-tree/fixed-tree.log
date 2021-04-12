@@ -1,0 +1,83 @@
+#
+#model:
+#
+#<?xml version="1.0" encoding="UTF-8" standalone="no"?><input id="posterior" spec="beast.core.util.CompoundDistribution">
+#    <distribution id="prior" spec="beast.core.util.CompoundDistribution">
+#        <distribution id="YuleModel.t:fixed-tree" spec="beast.evolution.speciation.YuleModel">
+#            <parameter id="birthRate.t:fixed-tree" name="birthDiffRate" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#            <tree id="Tree.t:fixed-tree" spec="beast.evolution.tree.Tree">
+#                <taxonset id="TaxonSet.fixed-tree" spec="beast.evolution.alignment.TaxonSet">
+#                </taxonset>
+#            </tree>
+#        </distribution>
+#        <prior id="YuleBirthRatePrior.t:fixed-tree" name="distribution" x="@birthRate.t:fixed-tree">
+#            <Uniform id="Uniform.1" name="distr" upper="Infinity"/>
+#        </prior>
+#        <prior id="FrequenciesPrior.s:fixed-tree" name="distribution">
+#            <parameter dimension="4" id="freqParameter.s:fixed-tree" lower="0.0" name="x" spec="beast.core.parameter.RealParameter" upper="1.0">0.25</parameter>
+#            <Uniform id="Uniform.3" name="distr"/>
+#        </prior>
+#        <prior id="KappaPrior.s:fixed-tree" name="distribution">
+#            <parameter id="kappa.s:fixed-tree" lower="0.0" name="x" spec="beast.core.parameter.RealParameter">2.0</parameter>
+#            <LogNormal id="LogNormalDistributionModel.0" name="distr">
+#                <parameter estimate="false" id="RealParameter.1" name="M" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#                <parameter estimate="false" id="RealParameter.2" name="S" spec="beast.core.parameter.RealParameter">1.25</parameter>
+#            </LogNormal>
+#        </prior>
+#        <prior id="ClockPrior.c:geo" name="distribution">
+#            <parameter id="clockRate.c:geo" name="x" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#            <Uniform id="Uniform.11" name="distr" upper="Infinity"/>
+#        </prior>
+#    </distribution>
+#    <distribution id="likelihood" spec="beast.core.util.CompoundDistribution" useThreads="true">
+#        <distribution data="@fixed-tree" id="treeLikelihood.fixed-tree" spec="beast.evolution.likelihood.ThreadedTreeLikelihood" tree="@Tree.t:fixed-tree">
+#            <siteModel id="SiteModel.s:fixed-tree" spec="beast.evolution.sitemodel.SiteModel">
+#                <parameter estimate="false" id="mutationRate.s:fixed-tree" name="mutationRate" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#                <parameter estimate="false" id="gammaShape.s:fixed-tree" name="shape" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#                <parameter estimate="false" id="proportionInvariant.s:fixed-tree" lower="0.0" name="proportionInvariant" spec="beast.core.parameter.RealParameter" upper="1.0">0.0</parameter>
+#                <substModel id="hky.s:fixed-tree" kappa="@kappa.s:fixed-tree" spec="beast.evolution.substitutionmodel.HKY">
+#                    <frequencies frequencies="@freqParameter.s:fixed-tree" id="estimatedFreqs.s:fixed-tree" spec="beast.evolution.substitutionmodel.Frequencies"/>
+#                </substModel>
+#            </siteModel>
+#            <branchRateModel id="StrictClock.c:fixed-tree" spec="beast.evolution.branchratemodel.StrictClockModel">
+#                <parameter estimate="false" id="clockRate.c:fixed-tree" name="clock.rate" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#            </branchRateModel>
+#        </distribution>
+#        <distribution id="slocationtreeLikelihood.geo" spec="sphericalGeo.ApproxMultivariateTraitLikelihood" tree="@Tree.t:fixed-tree">
+#            <data id="geo" spec="sphericalGeo.AlignmentFromTraitMap">
+#                <traitMap id="traitmap.s:geo" initByMean="true" randomizelower="-90 -180" randomizeupper="90 180" spec="sphericalGeo.TreeTraitMap" traitName="location" tree="@Tree.t:fixed-tree">
+#                    <parameter dimension="38" id="location.s:geo" minordimension="2" spec="sphericalGeo.LocationParameter">0.0 0.0</parameter>
+#                        Ancylotropus.carniscutis.D0407=63.3233807 97.09799740000001,
+#Austeucharis.implexa.D0164=63.3233807 97.09799740000001,
+#Chalcura.nr.ramosa.D0646a=58.31950685 104.71922099999999,
+#Colocharis.sp.D3843=63.3233807 97.09799740000001,
+#Galearia.sp.D3922=58.31950685 104.71922099999999,
+#Kapala.ivorensis.D2746=63.3233807 97.09799740000001,
+#Kapala.sp.D3920=58.31950685 104.71922099999999,
+#Lasiokapala.sp.D3598=58.31950685 104.71922099999999,
+#Neolirata.alta.D3601=63.3233807 97.09799740000001,
+#Schizaspidia.aenea.D0168=58.31950685 104.71922099999999                                    </traitMap>
+#                <userDataType id="LocationDataType.0" spec="sphericalGeo.LocationDataType"/>
+#            </data>
+#            <siteModel id="geoContSiteModel.s:geo" spec="beast.evolution.sitemodel.SiteModel">
+#                <substModel fast="true" id="sdiffusionModel.s:geo" spec="sphericalGeo.SphericalDiffusionModel">
+#                    <parameter id="sprecision.s:geo" lower="0.0" name="precision" spec="beast.core.parameter.RealParameter">100.0</parameter>
+#                </substModel>
+#            </siteModel>
+#            <branchRateModel clock.rate="@clockRate.c:geo" id="StrictClock.c:geo" spec="beast.evolution.branchratemodel.StrictClockModel"/>
+#        </distribution>
+#    </distribution>
+#</input>
+#
+Sample	posterior	likelihood	prior	treeLikelihood.fixed-tree	TreeHeight	YuleModel	birthRate	kappa.fixed-tree	clockRate	slocationtreeLikelihood.geo	sprecision.geo	freqParameter.fixed-tree1	freqParameter.fixed-tree2	freqParameter.fixed-tree3	freqParameter.fixed-tree4
+0	-2695.528820156935	-2693.1051000009606	-2.423720155974287	-2708.4883585025696	0.0750089122	-0.558360122	1.0	2.0	1.1919768495750882	15.383258501608756	100.0	0.25	0.25	0.25	0.25
+1000	-2662.1177050661595	-2659.693984910185	-2.423720155974287	-2708.4883585025696	0.0750089122	-0.558360122	1.0	2.0	5.067835829822766	48.79437359238458	100.0	0.25	0.25	0.25	0.25
+2000	-2662.1156525379006	-2659.691932381926	-2.423720155974287	-2708.4883585025696	0.0750089122	-0.558360122	1.0	2.0	5.1760004754947095	48.796426120643396	100.0	0.25	0.25	0.25	0.25
+3000	-2662.1356779840658	-2659.7119578280913	-2.423720155974287	-2708.4883585025696	0.0750089122	-0.558360122	1.0	2.0	5.401522404060072	48.77640067447846	100.0	0.25	0.25	0.25	0.25
+4000	-2662.7313717604816	-2660.307651604507	-2.423720155974287	-2708.4883585025696	0.0750089122	-0.558360122	1.0	2.0	4.007333674807001	48.180706898062375	100.0	0.25	0.25	0.25	0.25
+5000	-2662.1399873903747	-2659.7162672344	-2.423720155974287	-2708.4883585025696	0.0750089122	-0.558360122	1.0	2.0	5.4279658103751025	48.77209126816954	100.0	0.25	0.25	0.25	0.25
+6000	-2664.644659051214	-2662.2209388952397	-2.423720155974287	-2708.4883585025696	0.0750089122	-0.558360122	1.0	2.0	9.21052921039812	46.26741960733009	100.0	0.25	0.25	0.25	0.25
+7000	-2662.331693210621	-2659.9079730546464	-2.423720155974287	-2708.4883585025696	0.0750089122	-0.558360122	1.0	2.0	4.426923301521022	48.58038544792294	100.0	0.25	0.25	0.25	0.25
+8000	-2663.8889043183985	-2661.465184162424	-2.423720155974287	-2708.4883585025696	0.0750089122	-0.558360122	1.0	2.0	8.31660687047546	47.023174340145616	100.0	0.25	0.25	0.25	0.25
+9000	-2662.145920178878	-2659.7222000229035	-2.423720155974287	-2708.4883585025696	0.0750089122	-0.558360122	1.0	2.0	5.461062671003398	48.76615847966589	100.0	0.25	0.25	0.25	0.25
+10000	-2662.1714298353763	-2659.747709679402	-2.423720155974287	-2708.4883585025696	0.0750089122	-0.558360122	1.0	2.0	4.763391321978453	48.740648823167604	100.0	0.25	0.25	0.25	0.25

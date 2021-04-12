@@ -1,0 +1,10 @@
+seq_Chalcura.nr.ramosa.D0646a
+seq_Austeucharis.implexa.D0164
+seq_Ancylotropus.carniscutis.D0407
+seq_Schizaspidia.aenea.D0168
+seq_Colocharis.sp.D3843
+seq_Lasiokapala.sp.D3598
+seq_Neolirata.alta.D3601
+seq_Galearia.sp.D3922
+seq_Kapala.sp.D3920
+seq_Kapala.ivorensis.D2746

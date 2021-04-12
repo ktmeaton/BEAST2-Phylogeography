@@ -1,0 +1,8 @@
+#NEXUS
+Begin Taxa;
+ Dimensions NTax=10;
+ TaxLabels Chalcura.nr.ramosa.D0646a Austeucharis.implexa.D0164 Ancylotropus.carniscutis.D0407 Schizaspidia.aenea.D0168 Colocharis.sp.D3843 Galearia.sp.D3922 Kapala.sp.D3920 Kapala.ivorensis.D2746 Lasiokapala.sp.D3598 Neolirata.alta.D3601;
+End;
+Begin Trees;
+ Tree tree1=((Chalcura.nr.ramosa.D0646a:0.01223,Austeucharis.implexa.D0164:0.04554):0.00949,((Ancylotropus.carniscutis.D0407:0.05433,Schizaspidia.aenea.D0168:0.03116):0.01119,(Colocharis.sp.D3843:0.00630,(Galearia.sp.D3922:0.02162,(Kapala.sp.D3920:0.01452,(Kapala.ivorensis.D2746:0.01509,(Lasiokapala.sp.D3598:0.01901,Neolirata.alta.D3601:0.00815):0.01029):0.00137):0.00364):0.00220):0.01436):0.00949):0.00000;
+End;

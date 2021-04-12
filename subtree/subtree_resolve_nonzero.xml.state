@@ -1,0 +1,12 @@
+<itsabeastystatewerein version='2.0' sample='10'>
+<statenode id='ucldStdev.c:subtree_resolve_nonzero'>ucldStdev.c:subtree_resolve_nonzero[1 1] (0.0,Infinity): 0.06241178393552782 </statenode>
+<statenode id='rateCategories.c:subtree_resolve_nonzero'>rateCategories.c:subtree_resolve_nonzero[8 1] (0,7): 5 2 4 6 5 0 5 1 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"ucldStdevScaler.c:subtree_resolve_nonzero","p":0.5,"accept":1,"reject":1,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"CategoriesRandomWalk.c:subtree_resolve_nonzero","p":"NaN","accept":2,"reject":1,"acceptFC":0,"rejectFC":0,"rejectIv":1,"rejectOp":1},
+{"id":"CategoriesSwapOperator.c:subtree_resolve_nonzero","p":"NaN","accept":3,"reject":1,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"CategoriesUniform.c:subtree_resolve_nonzero","p":"NaN","accept":0,"reject":2,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0}
+]}
+-->

@@ -1,0 +1,10 @@
+Ancylotropus.carniscutis.D0407	63.3233807
+Lasiokapala.sp.D3598	58.31950685
+Austeucharis.implexa.D0164	63.3233807
+Schizaspidia.aenea.D0168	58.31950685
+Neolirata.alta.D3601	63.3233807
+Galearia.sp.D3922	58.31950685
+Kapala.ivorensis.D2746	63.3233807
+Kapala.sp.D3920	58.31950685
+Colocharis.sp.D3843	63.3233807
+Chalcura.nr.ramosa.D0646a	58.31950685

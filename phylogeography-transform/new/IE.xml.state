@@ -1,0 +1,12 @@
+<itsabeastystatewerein version='2.0' sample='19999'>
+<statenode id='ucldStdev.c:IE'>ucldStdev.c:IE[1 1] (0.0,Infinity): 2.9696176649100563 </statenode>
+<statenode id='rateCategories.c:IE'>rateCategories.c:IE[194 1] (0,193): 168 135 150 24 25 29 182 171 161 49 167 181 154 132 15 45 24 1 176 75 107 19 127 115 121 141 10 165 99 126 57 145 33 183 26 167 144 184 123 175 2 106 54 108 191 155 124 162 37 2 158 153 153 96 188 193 0 30 154 108 9 165 29 187 13 176 1 181 15 186 150 91 105 158 145 23 21 191 188 171 2 77 80 75 7 32 74 134 73 177 6 11 18 4 173 165 75 94 175 8 145 101 19 183 11 177 4 184 116 3 16 192 58 160 2 35 0 67 174 179 190 17 25 184 67 7 149 102 2 75 157 162 12 193 30 170 151 102 125 67 182 157 1 189 70 92 150 167 165 78 25 55 160 179 161 146 186 55 183 16 37 17 190 16 0 0 181 182 54 8 2 48 186 32 9 188 191 112 149 29 75 20 184 31 0 172 5 20 40 5 191 1 99 171 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"ucldStdevScaler.c:IE","p":0.5,"accept":72,"reject":1740,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"CategoriesRandomWalk.c:IE","p":"NaN","accept":3961,"reject":2155,"acceptFC":0,"rejectFC":0,"rejectIv":2043,"rejectOp":2043},
+{"id":"CategoriesSwapOperator.c:IE","p":"NaN","accept":1982,"reject":4094,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"CategoriesUniform.c:IE","p":"NaN","accept":2339,"reject":3657,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0}
+]}
+-->

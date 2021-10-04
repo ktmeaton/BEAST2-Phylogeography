@@ -23,9 +23,9 @@
 <map name="OneOnX" >beast.math.distributions.OneOnX</map>
 
 
-<run id="mcmc" spec="MCMC" chainLength="10000">
+<run id="mcmc" spec="MCMC" chainLength="10000000">
     <state id="state" spec="State" storeEvery="5000">
-        <parameter id="ucldStdev.c:IE" spec="parameter.RealParameter" lower="0.0" name="stateNode" upper="5.0">0.1</parameter>
+        <parameter id="ucldStdev.c:IE" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.1</parameter>
         <stateNode id="rateCategories.c:IE" spec="parameter.IntegerParameter" dimension="194">1</stateNode>
     </state>
 
@@ -147,9 +147,6 @@ spec="sphericalGeo.AlignmentFromTraitMap">
                             </taxonset>
                         </tree>
                         <parameter id="location.s:IE" spec="sphericalGeo.LocationParameter" dimension="390" minordimension="2">0.0 0.0</parameter>
-                        
-                        
-                        
                         Albanian_Corinth=37.9683334850582 23.5258329215863,
 Albanian_Gheg=42.2265854672629 20.8761781434291,
 Albanian_Sicily=38.0018116756757 13.6335986216216,
@@ -247,7 +244,7 @@ Vlach=40.586 21.395,
 Wakhi=37.0896278316136 73.2784554214728,
 Walloon=50.1993967535211 5.05004061971831,
 Waziri=32.0 69.5,
-Welsh=51.75 -4.25                                        </traitMap>
+Welsh=51.75 -4.25                    </traitMap>
                     <userDataType id="LocationDataType.0" spec="sphericalGeo.LocationDataType"/>
                 </data>
                 <tree idref="Tree.t:IE"/>
@@ -274,7 +271,7 @@ Welsh=51.75 -4.25                                        </traitMap>
 
     <operator id="CategoriesUniform.c:IE" spec="UniformOperator" parameter="@rateCategories.c:IE" weight="10.0"/>
 
-    <logger id="tracelog" spec="Logger" fileName="IE.log" logEvery="100" model="@posterior" sanitiseHeaders="true" sort="smart">
+    <logger id="tracelog" spec="Logger" fileName="beast.log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
         <log idref="posterior"/>
         <log idref="likelihood"/>
         <log idref="prior"/>
@@ -284,13 +281,13 @@ Welsh=51.75 -4.25                                        </traitMap>
         <log id="rate.c:IE" spec="beast.evolution.branchratemodel.RateStatistic" branchratemodel="@RelaxedClock.c:IE" tree="@Tree.t:IE"/>
     </logger>
 
-    <logger id="screenlog" spec="Logger" fileName="" logEvery="100" sanitiseHeaders="true">
+    <logger id="screenlog" spec="Logger" logEvery="1000">
         <log idref="posterior"/>
         <log idref="likelihood"/>
         <log idref="prior"/>
     </logger>
 
-    <logger id="TreeLogger" spec="Logger" fileName="IE.trees" logEvery="100" mode="tree">
+    <logger id="TreeLogger" spec="Logger" fileName="IE.trees" logEvery="1000" mode="tree">
         <log id="TreeWithMetaDataLogger" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:IE">
             <metadata id="location" spec="sphericalGeo.TraitFunction" likelihood="@slocationtreeLikelihood.IE">0.0</metadata>
         </log>
